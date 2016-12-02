@@ -20,4 +20,6 @@ public class Order implements Serializable {
     private Long userId;
 
     private Long goodsId;
+
+    private Double totalPrice;
 }

@@ -11,4 +11,9 @@
         <result column="number" property="number" />
         <result column="state" property="state" />
     </resultMap>
+
+    <insert id="addGoods" parameterType="Goods">
+        INSERT  INTO t_goods(title, price, number, state)
+        values(#{title}, #{price}, #{number}, #{state});
+    </insert>
 </mapper>

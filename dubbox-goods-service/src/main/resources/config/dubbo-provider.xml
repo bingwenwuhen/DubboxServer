@@ -23,14 +23,26 @@
 
     <!-- 服务提供方 -->
     <!-- 第一：服务提供方启名称  计算机要用名称 -->
-    <dubbo:application name="babasport-service-product"/>
+    <dubbo:application name="dubbox-goods-service"/>
     <!-- 第二：到注册中心注册地址  连接zookeeper -->
     <!--<dubbo:registry address="192.168.200.128:2181,192.168.200.129:2181,192.168.200.130:2181" protocol="zookeeper"/> -->
     <dubbo:registry address="127.0.0.1:2181" protocol="zookeeper"/>
     <!--不连接配置中心-->
-    <dubbo:registry address="N/A"/>
+    <!--<dubbo:registry address="N/A"/>-->
     <!-- 第三：自定义端口号   默认端口是20880-->
-    <dubbo:protocol host="localhost" port="20880"/>
+    <!--<dubbo:protocol host="localhost" port="20880"/>-->
+
+    <dubbo:protocol name="dubbo" host="localhost" serialization="kryo"  port="20880"  />
+    <!-- 采用dubbox提供的REST风格服务（基于resteasy）(server可以选jetty tomcat(推荐) netty)，注意在相应的服务上加上注解以及相应依赖的引入-->
+    <!--rest服务默认都是采用http长连接来访问，如果想切换为短连接，配置keepalive="false"-->
+    <!--<dubbo:protocol name="rest" port="8080"  server="tomcat" />-->
+
+    <!-- timeout远程服务调用超时时间(毫秒) -->
+    <!-- threads该服务线程池大小 -->
+    <!-- accepts限制服务器端接受的连接不能超过10个 -->
+    <!-- 随机token令牌，使用UUID生成 ，防止消费者绕过注册中心访问提供者-->
+    <dubbo:provider timeout="5000" threadpool="fixed"  threads="100" accepts="1000" token="true"/>
+
     <!--第四：指定暴露的接口-->
     <dubbo:service interface="cn.com.dubbo.goods.api.GoodsService" ref="goodsService"/>
     <dubbo:service interface="cn.com.dubbo.goods.api.OrderService" ref="orderService"/>

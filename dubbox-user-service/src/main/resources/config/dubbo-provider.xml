@@ -44,7 +44,7 @@
     <!--不连接配置中心-->
     <!--<dubbo:registry address="N/A"/>-->
     <!-- 第三：自定义端口号   默认端口是20880-->
-    <dubbo:protocol host="localhost" port="20880"/>
+    <!--<dubbo:protocol host="localhost" port="20880"/>-->
     <!--第四：指定暴露的接口-->
     <dubbo:service interface="cn.com.dubbo.user.api.UserService" ref="userService"/>
 </beans>

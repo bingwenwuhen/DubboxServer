@@ -8,5 +8,11 @@
         <result column="goods_id" property="goodsId"/>
         <result column="created_at" property="createdAt"/>
         <result column="updated_at" property="updatedAt"/>
+        <result column="total_price" property="totalPrice"/>
     </resultMap>
+
+    <insert id="addOrder" parameterType="Order">
+        INSERT  INTO t_order(user_id, goods_id,total_price)
+        VALUES(#{userId}, #{goodsId}, #{totalPrice});
+    </insert>
 </mapper>
