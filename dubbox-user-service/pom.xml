@@ -1,0 +1,50 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <parent>
+        <artifactId>DubboxServer</artifactId>
+        <groupId>cn.com.dubbo</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>dubbox-user-service</artifactId>
+    <packaging>war</packaging>
+    <name>dubbox :: user :: service</name>
+    <url>http://maven.apache.org</url>
+
+    <dependencies>
+        <dependency>
+            <groupId>cn.com.dubbo</groupId>
+            <artifactId>dubbox-api-user</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>cn.com.dubbo</groupId>
+            <artifactId>dubbox-mapper</artifactId>
+        </dependency>
+        <!-- Tomcat7 servlet-api -->
+        <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-jsp-api</artifactId>
+            <version>7.0.47</version>
+            <!--<scope>provided</scope>-->
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>dubbox-user-service</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <configuration>
+                    <httpConnector>
+                        <port>9090</port>
+                    </httpConnector>
+                    <scanIntervalSeconds>10</scanIntervalSeconds>
+                    <webApp>
+                        <contextPath>/</contextPath>
+                    </webApp>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
