@@ -27,10 +27,12 @@
 	 <!-- 第二：到注册中心注册地址  连接zookeeper -->
 <!-- 	 <dubbo:registry address="192.168.200.128:2181,192.168.200.129:2181,192.168.200.130:2181" protocol="zookeeper"/> -->
 	 <dubbo:registry address="127.0.0.1:2181" protocol="zookeeper"/>
-	<dubbo:registry address="N/A"/>
+	<!--<dubbo:registry address="N/A"/>-->
 	 <!-- 第三：调用接口  -->
-	 <dubbo:reference interface="cn.com.dubbo.user.api.UserService" id="userService"
+	 <dubbo:reference interface="cn.com.dubbo.goods.api.GoodsService" id="goodsService"
 			 timeout="600000"/>
+	<dubbo:reference interface="cn.com.dubbo.goods.api.OrderService" id="orderService"
+					 timeout="600000"/>
 	<!--全局设置超时时间-->
 	<dubbo:consumer timeout="600000"  check="false"/>
 	 
