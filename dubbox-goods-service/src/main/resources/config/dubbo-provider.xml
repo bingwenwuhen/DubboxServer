@@ -32,7 +32,7 @@
     <!-- 第三：自定义端口号   默认端口是20880-->
     <!--<dubbo:protocol host="localhost" port="20880"/>-->
 
-    <dubbo:protocol name="dubbo" host="localhost" serialization="kryo"  port="20880"  />
+    <dubbo:protocol name="dubbo" host="localhost" serialization="kryo" port="20881" />
     <!-- 采用dubbox提供的REST风格服务（基于resteasy）(server可以选jetty tomcat(推荐) netty)，注意在相应的服务上加上注解以及相应依赖的引入-->
     <!--rest服务默认都是采用http长连接来访问，如果想切换为短连接，配置keepalive="false"-->
     <!--<dubbo:protocol name="rest" port="8080"  server="tomcat" />-->

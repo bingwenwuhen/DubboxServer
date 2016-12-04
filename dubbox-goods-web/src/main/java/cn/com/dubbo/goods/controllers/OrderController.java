@@ -20,7 +20,7 @@ public class OrderController {
     @Autowired
     private OrderService orderService;
 
-    @RequestMapping(value = "/order/add", method = RequestMethod.POST,
+    @RequestMapping(value = "/order/add.do", method = RequestMethod.POST,
                     consumes = "application/json;charset=utf-8",
                     produces = "application/json;charset=utf-8")
     public Object addOrder(@RequestBody Order order) {

@@ -20,7 +20,7 @@ public class GoodsController {
     @Autowired
     private GoodsService goodsService;
 
-    @RequestMapping(value = "/goods/add", method = RequestMethod.POST,
+    @RequestMapping(value = "/goods/add.do", method = RequestMethod.POST,
                     consumes = "application/json;charset=utf-8",
                     produces = "application/json;charset=utf-8")
     public Object addGoods(@RequestBody Goods goods) {
